@@ -1,16 +1,25 @@
 public class Main {
     public static void main(String[] args) {
 
-        Product p1 = new Product(1, "milk", 500.0, 5);
-        Customer c1 = new Customer(1, "Liman", 3000.0, 1);
+        Product p = new Product(1, "milk", 500, 5);
+        Customer c = new Customer(1, "Yernar", 3000);
+
+        
+        System.out.println("Initial state:");
+        System.out.println(p.name + " " + p.price + " " + p.amount);
+        System.out.println(c.name + " " + c.money);
 
         int count = 2;
-        double sum = p1.getPrice() * count;
+        double sum = p.getPrice() * count;
 
-        p1.addAmount(-count);
-        c1.spend(sum);
+        p.addAmount(-count);
+        c.spend(sum);
 
-        System.out.println("total: " + sum);
-        System.out.println("thank you for your purchase");
+        Sale s = new Sale(1, c.name, sum);
+
+        System.out.println("After purchase:");
+        System.out.println(p.name + " " + p.amount);
+        System.out.println(c.name + " " + c.money);
+        System.out.println("You need to pay: " + s.total);
     }
 }
