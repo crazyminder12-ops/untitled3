@@ -1,19 +1,28 @@
 public class Customer {
 
-    private int id;
-    private String name;
-    private double cash;
-    private int purchases;
+    int id;
+    String name;
+    double money;
 
-    public Customer(int id, String name, double cash, int purchases) {
+    public Customer(int id, String name, double money) {
         this.id = id;
         this.name = name;
-        this.cash = cash;
-        this.purchases = purchases;
+        this.money = money;
     }
 
-    public void spend(double sum) {
-        cash -= sum;
-        purchases++;
+    double getMoney() {
+        return money;
+    }
+
+    void setMoney(double money) {
+        if (money >= 0) {
+            this.money = money;
+        }
+    }
+
+    void spend(double sum) {
+        if (sum <= money) {
+            money -= sum;
+        }
     }
 }
