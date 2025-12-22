@@ -1,9 +1,9 @@
 public class Product {
 
-    private int id;
-    private String name;
-    private double price;
-    private int amount;
+    int id;
+    String name;
+    double price;
+    int amount;
 
     public Product(int id, String name, double price, int amount) {
         this.id = id;
@@ -12,11 +12,29 @@ public class Product {
         this.amount = amount;
     }
 
-    public double getPrice() {
+    // getters
+    int getPrice() {
         return price;
     }
 
-    public void addAmount(int x) {
-        amount += x;
+    int getAmount() {
+        return amount;
+    }
+
+    // setters
+    void setPrice(double price) {
+        if (price >= 0) {
+            this.price = price;
+        }
+    }
+
+    void setAmount(int amount) {
+        if (amount >= 0) {
+            this.amount = amount;
+        }
+    }
+
+    void addAmount(int value) {
+        amount += value;
     }
 }
